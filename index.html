@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Academia de refuerzo: matemáticas y más. Aprende, Entrena y Triunfa con Álvaro López López.">
+  <title>Ecuación Ganadora – Aprende, Entrena y Triunfa</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#C62828',
+            secondary: '#1A4B91',
+            dark: '#2A2E37',
+            light: '#FFF8F7'
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="font-sans text-dark bg-light">
+  <!-- Navbar -->
+  <header class="bg-white shadow">
+    <div class="max-w-6xl mx-auto px-6 flex justify-between items-center h-20">
+      <img src="assets/logo.svg" alt="Ecuación Ganadora logo" class="h-12">
+      <a href="https://wa.me/34626092080?text=Hola%20%C2%A1Quiero%20informaci%C3%B3n%20sobre%20las%20clases%20en%20Ecuaci%C3%B3n%20Ganadora!" class="bg-secondary text-white px-4 py-2 rounded-lg hover:bg-primary transition">WhatsApp</a>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="py-20 bg-secondary text-white text-center">
+    <h1 class="text-4xl md:text-6xl font-extrabold mb-4">Aprende, Entrena y Triunfa</h1>
+    <p class="text-xl md:text-2xl mb-8 max-w-2xl mx-auto">Clases de refuerzo, matemáticas y más para ESO y Bachillerato, con 100 % de aprobados.</p>
+    <a href="#contacto" class="bg-primary px-6 py-3 rounded-lg text-lg hover:opacity-90">Reserva tu sesión diagnóstica</a>
+  </section>
+
+  <!-- Servicios -->
+  <section id="servicios" class="py-16 max-w-6xl mx-auto px-6">
+    <h2 class="text-3xl font-bold text-center mb-12">Modalidades de clase</h2>
+    <div class="grid md:grid-cols-3 gap-8">
+      <div class="bg-white p-8 shadow rounded-lg">
+        <h3 class="text-xl font-semibold mb-4">Individuales 1‑to‑1</h3>
+        <p>Plan totalmente personalizado. Ritmo marcado por ti.</p>
+      </div>
+      <div class="bg-white p-8 shadow rounded-lg">
+        <h3 class="text-xl font-semibold mb-4">Grupales reducidas</h3>
+        <p>Máx. 5 alumnos. Aprendizaje colaborativo y feedback constante.</p>
+      </div>
+      <div class="bg-white p-8 shadow rounded-lg">
+        <h3 class="text-xl font-semibold mb-4">Intensivos</h3>
+        <p>Prepara exámenes finales o EVAU con simulacros y estrategia.</p>
+      </div>
+    </div>
+    <p class="text-center mt-8">Consulta sin compromiso para conocer precios y disponibilidad.</p>
+  </section>
+
+  <!-- Sobre mí -->
+  <section id="sobre-mi" class="py-16 bg-light">
+    <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-10 items-center">
+      <img src="assets/foto-alvaro.jpg" alt="Álvaro López López" class="rounded-2xl shadow-md">
+      <div>
+        <h2 class="text-3xl font-bold mb-4">Sobre Álvaro</h2>
+        <p>Soy Álvaro López López, graduado en Matemáticas, con máster en Educación Secundaria y un segundo máster en Inteligencia Artificial. He ayudado a decenas de estudiantes a alcanzar el 100 % de aprobados mediante una metodología que mezcla explicación clara, práctica intensiva y seguimiento individual.</p>
+        <p class="mt-4 font-semibold">¡Tu éxito académico es nuestra ecuación ganadora!</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonios -->
+  <section id="testimonios" class="py-16 max-w-6xl mx-auto px-6">
+    <h2 class="text-3xl font-bold text-center mb-12">Lo que dicen nuestros alumnos</h2>
+    <div class="grid md:grid-cols-3 gap-8">
+      <blockquote class="bg-white p-6 rounded-lg shadow italic">“Aprobé Matemáticas con notable después de suspender todo el año. ¡Gracias Álvaro!” <br><span class="font-bold not-italic">— Marta, 4º ESO</span></blockquote>
+      <blockquote class="bg-white p-6 rounded-lg shadow italic">“El intensivo EVAU me subió 2 puntos y entré en la carrera que quería.” <br><span class="font-bold not-italic">— Diego, 2º Bach</span></blockquote>
+      <blockquote class="bg-white p-6 rounded-lg shadow italic">“Las clases online son súper claras y puedo ver las grabaciones.” <br><span class="font-bold not-italic">— Lucía, 1º Bach</span></blockquote>
+    </div>
+  </section>
+
+  <!-- Contacto -->
+  <section id="contacto" class="py-16 bg-secondary text-white">
+    <div class="max-w-3xl mx-auto px-6 text-center">
+      <h2 class="text-3xl font-bold mb-4">Reserva tu plaza</h2>
+      <p class="mb-8">Respondo rápido (< 24 h). Puedes escribirme por WhatsApp o rellenar el formulario.</p>
+      <a href="https://wa.me/34626092080?text=Hola%20%C2%A1Quiero%20informaci%C3%B3n%20sobre%20las%20clases%20en%20Ecuaci%C3%B3n%20Ganadora!" class="inline-block bg-primary px-6 py-3 rounded-lg text-lg font-semibold mb-8 hover:opacity-90">Escribirme por WhatsApp</a>
+      <!-- Formspree placeholder -->
+      <form action="https://formspree.io/f/tu-id" method="POST" class="bg-white rounded-lg p-6 shadow-md text-dark">
+        <div class="grid md:grid-cols-2 gap-4">
+          <input type="text" name="nombre" placeholder="Tu nombre" class="border p-3 rounded w-full">
+          <input type="email" name="email" placeholder="Tu email" class="border p-3 rounded w-full">
+        </div>
+        <textarea name="mensaje" rows="4" placeholder="Cuéntame qué asignaturas y curso necesitas…" class="border p-3 rounded w-full my-4"></textarea>
+        <button type="submit" class="bg-secondary text-white px-6 py-3 rounded-lg hover:opacity-90">Enviar mensaje</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-dark text-light py-8 text-center">
+    <p>© 2025 Ecuación Ganadora · Calle Miguel Grau 1 · +34 626 09 20 80</p>
+  </footer>
+</body>
+</html>
