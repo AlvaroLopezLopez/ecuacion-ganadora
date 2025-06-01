@@ -4,10 +4,10 @@
 
 /* 1) Variables de color */
 :root {
-  --color-primary:   #264653;  /* Azul petróleo oscuro */
-  --color-secondary: #E76F51;  /* Naranja terracota */
-  --color-dark:      #0A0F2C;  /* Azul muy oscuro para texto */
-  --color-light:     #F4F1DE;  /* Beige suave para fondo general */
+  --color-primary:   #264653;
+  --color-secondary: #E76F51;
+  --color-dark:      #0A0F2C;
+  --color-light:     #F4F1DE;
 }
 
 /* 2) Reset global + box-sizing + overflow-x */
@@ -23,7 +23,7 @@ html,
 body {
   height: 100%;
   width: 100%;
-  overflow-x: hidden;          /* Evita scroll horizontal indeseado */
+  overflow-x: hidden;
   background-color: var(--color-light);
   font-family: "Inter", sans-serif;
   color: var(--color-dark);
@@ -38,11 +38,10 @@ h1, h2, h3, h4, h5, h6 {
   margin-bottom: 0.5rem;
 }
 
-/* 4) Contenedor centrado (sin padding lateral global) */
+/* 4) Contenedor centrado (clase reutilizable) */
 .container {
   max-width: 1024px;
   margin: 0 auto;
-  /* No se aplica padding horizontal aquí */
 }
 
 /* 5) Botón primario (estilo uniforme) */
@@ -57,9 +56,8 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 700;
   text-decoration: none;
   transition: background-color 0.2s ease, transform 0.2s ease;
-  flex-shrink: 0; /* No se encoja si falta espacio */
+  flex-shrink: 0;
 }
-
 .btn-primary:hover {
   background-color: var(--color-secondary);
   transform: translateY(-2px);
@@ -73,13 +71,10 @@ h1, h2, h3, h4, h5, h6 {
   padding: 1.5rem;
   transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.5s ease;
 }
-
 .card:hover {
   transform: translateY(-0.5rem);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
 }
-
-/* Titulares de servicios centrados */
 .servicios .card h3 {
   text-align: center;
 }
@@ -91,41 +86,35 @@ h1, h2, h3, h4, h5, h6 {
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 }
 
-/* 8) Animaciones fade-up */
+/* 8) Animaciones “fade-up” */
 .fade-up {
   opacity: 0;
   transform: translateY(2rem);
   transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
-
 .fade-up.visible {
   opacity: 1;
   transform: translateY(0);
 }
 
-/* 9) Navbar: padding solo en móvil, sin afectar a .container */
+/* 9) Navbar: logo, título y botón alineados verticalmente centrados */
 header.navbar {
   display: flex;
   justify-content: space-between;
-  align-items: center;   /* Centra verticalmente logo, título y botón */
-  padding-left: 1rem;    /* 16px de margen en móvil */
+  align-items: center;
+  padding-left: 1rem;  /* Solo en móvil */
   padding-right: 1rem;
 }
-
 @media (min-width: 640px) {
   header.navbar {
     padding-left: 0;
     padding-right: 0;
   }
 }
-
-/* Altura fija para el logo */
 header.navbar .logo {
   height: 8rem;
   flex-shrink: 0;
 }
-
-/* Título centrado en el header */
 .header-title {
   flex: 1;
   text-align: center;
@@ -135,10 +124,9 @@ header.navbar .logo {
   white-space: nowrap;
   margin: 0;
 }
-
 @media (max-width: 640px) {
   .header-title {
-    font-size: 1.25rem;
+    font-size: 1.5rem;
   }
 }
 
@@ -147,14 +135,16 @@ header.navbar .logo {
   background-color: var(--color-secondary);
   color: white;
   text-align: center;
-  padding: 4rem 1rem; /* padding vertical + 1rem horizontal interno */
+  padding: 4rem 1rem; /* 1rem horizontal interno, 4rem vertical */
 }
-
+/* Aquí podemos reducir el margen inferior a 2rem en lugar de 4rem */
+.hero {
+  margin-bottom: 2rem;
+}
 .hero h1 {
   font-size: 2.5rem;
   margin-bottom: 1rem;
 }
-
 .hero p {
   font-size: 1.125rem;
   margin-bottom: 2rem;
@@ -162,8 +152,7 @@ header.navbar .logo {
   margin-left: auto;
   margin-right: auto;
 }
-
-@media (min-width: 768px) {
+@media (min-width: 640px) {
   .hero h1 {
     font-size: 3.5rem;
   }
@@ -172,106 +161,127 @@ header.navbar .logo {
   }
 }
 
-/* 11) Sección “Servicios” (modalidades de clase) */
-.servicios {
-  padding: 3rem 0; /* solo padding vertical */
+/* 11) Sección “Servicios” (Modalidades de clase) */
+#servicios {
+  padding: 2rem 0;  /* Menos espaciado vertical que 3rem */
+  margin-bottom: 2rem; /* En lugar de 4rem, ahora 2rem */
 }
-
-.servicios h2 {
+#servicios h2 {
   text-align: center;
   font-size: 2rem;
   margin-bottom: 2rem;
 }
 
-/* 12) Sección “Sobre mí” (About) */
-.about-section {
-  display: grid;
-  gap: 2rem;
-  align-items: center;
-  padding: 3rem 0; /* solo padding vertical */
+/* 12) Sección “Sobre Álvaro” */
+#sobre-mi {
+  width: 100%;
+  padding: 2rem 0;   /* Reducido de 3rem a 2rem */
+  margin-bottom: 2rem; /* Espacio inferior de 2rem */
+  background-color: var(--color-light);
 }
-
+.about-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
 @media (min-width: 768px) {
-  .about-section {
+  .about-inner {
+    display: grid;
     grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    align-items: center;
   }
 }
-
-.about-section img {
+.about-img {
   width: 100%;
+  max-width: 300px;
   border-radius: 0.75rem;
+  object-fit: cover;
 }
-
-.about-text h2 {
-  font-size: 1.75rem;
-  margin-bottom: 1rem;
+@media (min-width: 768px) {
+  .about-img {
+    width: 100%;
+    margin: 0;
+  }
 }
-
-.about-text p {
-  margin-top: 0.5rem;
+.about-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
-
 .about-text .highlight {
   margin-top: 1rem;
   font-weight: 600;
+  color: var(--color-primary);
 }
-
 .about-text .social-link {
-  margin-top: 1rem;
   display: inline-flex;
   align-items: center;
-  color: var(--color-primary);
+  margin-top: 1rem;
+  color: var(--color-dark);
   text-decoration: none;
   font-weight: 500;
   transition: color 0.2s ease;
 }
-
 .about-text .social-link:hover {
   color: var(--color-secondary);
 }
-
-.about-text .social-link svg {
+.about-text .icon-linkedin {
   width: 1.25rem;
   height: 1.25rem;
   margin-right: 0.5rem;
   fill: currentColor;
 }
-
-/* 13) Sección “Testimonios” */
-.testimonios {
-  padding: 3rem 0; /* solo padding vertical */
-  position: relative;
-  overflow: hidden; /* oculta pseudo-elementos desbordados */
+.about-text .btn-primary {
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+}
+.about-section .fade-up {
+  opacity: 0;
+  transform: translateY(2rem);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+.about-section .fade-up.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
+/* 13) Sección “Testimonios” */
+#testimonios {
+  padding: 2rem 0; /* Menos espaciado que antes */
+  margin-bottom: 2rem;
+  position: relative;
+  overflow: hidden;
+}
 .testimonios h2 {
   text-align: center;
   font-size: 2rem;
   margin-bottom: 2rem;
   color: var(--color-dark);
 }
-
 .testimonios .grid-3 {
   max-width: 1024px;
   margin: 0 auto;
-  padding: 0 1rem; /* 1rem de padding interno para centrar en móvil */
+  padding: 0 1rem;
 }
-
-/* Cada tarjeta de testimonio: se revelan con fade-up */
 .testimonios .card {
-  opacity: 0; /* visible al añadirse .visible */
+  opacity: 0;
 }
-
 .testimonios .card.visible {
   opacity: 1;
   transform: translateY(0);
 }
-
-.testimonios .delay-0  { transition-delay: 0s; }
-.testimonios .delay-1  { transition-delay: 0.1s; }
-.testimonios .delay-2  { transition-delay: 0.2s; }
-
-/* Bloques decorativos (círculos semitransparentes) */
+.testimonios .delay-0 {
+  transition-delay: 0s;
+}
+.testimonios .delay-1 {
+  transition-delay: 0.1s;
+}
+.testimonios .delay-2 {
+  transition-delay: 0.2s;
+}
 .testimonios::before,
 .testimonios::after {
   content: "";
@@ -279,7 +289,6 @@ header.navbar .logo {
   border-radius: 50%;
   opacity: 0.15;
 }
-
 .testimonios::before {
   width: 300px;
   height: 300px;
@@ -287,7 +296,6 @@ header.navbar .logo {
   top: -100px;
   left: -100px;
 }
-
 .testimonios::after {
   width: 500px;
   height: 500px;
@@ -295,12 +303,10 @@ header.navbar .logo {
   bottom: -200px;
   right: -200px;
 }
-
 .testimonios blockquote {
   font-style: italic;
   color: var(--color-dark);
 }
-
 .testimonios blockquote span {
   display: block;
   margin-top: 0.5rem;
@@ -309,16 +315,15 @@ header.navbar .logo {
 }
 
 /* 14) Sección “Contacto” */
-.contacto {
-  padding: 3rem 0; /* solo padding vertical */
+#contacto {
+  padding: 2rem 0; /* Reducido de 3rem a 2rem */
+  margin-bottom: 2rem; 
   text-align: center;
 }
-
 .contacto h2 {
   font-size: 2rem;
   margin-bottom: 1rem;
 }
-
 .contacto p {
   margin-bottom: 1rem;
 }
@@ -327,16 +332,14 @@ header.navbar .logo {
 footer {
   background-color: var(--color-dark);
   color: var(--color-light);
-  padding: 3rem 1rem; /* 1rem de padding horizontal interno */
-  margin-top: 4rem;
+  padding: 2rem 1rem; /* Horizontal de 1rem, vertical de 2rem */
+  margin-top: 2rem;   /* En vez de 4rem */
   text-align: center;
   font-size: 0.9rem;
 }
-
 .footer-links {
   margin-top: 0.5rem;
 }
-
 .footer-links a {
   margin: 0 0.5rem;
   color: var(--color-light);
@@ -345,42 +348,72 @@ footer {
   align-items: center;
   transition: color 0.2s ease;
 }
-
 .footer-links a:hover {
   color: var(--color-secondary);
 }
-
 .footer-links svg {
   width: 1.25rem;
   height: 1.25rem;
   margin-right: 0.25rem;
 }
 
-/* 16) Margen extra entre cada sección */
-section {
-  margin: 4rem 0;
-}
+/* 16) (Elimino el section { margin: 4rem 0; } para controlar manualmente cada bloque) */
 
 /* 17) Marca de agua con logo rotado a 45° */
 html {
-  position: relative; 
-  z-index: 1; /* mantiene el contenido por encima */
+  position: relative;
+  z-index: 1;
 }
-
 html::before {
   content: "";
-  position: fixed;        /* cubre todo el viewport */
+  position: fixed;
   top: -50%;
   left: -50%;
   width: 200%;
   height: 200%;
   background-image: url("assets/logo.svg");
   background-repeat: repeat;
-  background-size: 150px 150px; /* ajusta el tamaño del logo */
-  opacity: 0.08;          /* muy baja para efecto marca de agua */
+  background-size: 150px 150px;
+  opacity: 0.08;
   transform: rotate(-45deg);
-  pointer-events: none;   /* no bloquea clicks */
-  z-index: 0;             /* por debajo de todo el contenido */
+  pointer-events: none;
+  z-index: 0;
 }
 
-/* ————————————————————————————————————— End of styles.css ————————————————————————— */ 
+@media (max-width: 640px) {
+  /* Márgenes horizontales en “Servicios” */
+  .servicios-container {
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+
+  /* Márgenes horizontales en “Sobre Álvaro” */
+  .about-text {
+    margin-left: 2rem;
+    margin-right: 2rem;
+  }
+
+  header.navbar {
+    /* centrar el único logo */
+    justify-content: center;
+  }
+  /* ocultar el título */
+  header.navbar .header-title {
+    display: none;
+  }
+  /* ocultar el segundo <img> (logo derecho) */
+  header.navbar img:last-of-type {
+    display: none;
+  }
+}
+
+
+@media (min-width: 640px) {
+  /* Márgenes horizontales en “Servicios” */
+  .servicios-container {
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+
+}
+
