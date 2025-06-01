@@ -54,14 +54,30 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 
-/* === Mismo cambio para el header === */
+/* === Header en móvil (<640px) === */
 header.navbar {
   padding-left: 1rem;
   padding-right: 1rem;
 }
 
+/* Cuando pantalla ≥640px, quitamos ese padding extra */
 @media (min-width: 640px) {
   header.navbar {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+/* ==== Clase .container (para el resto de secciones) ==== */
+.container {
+  max-width: 1024px;
+  margin: 0 auto;
+  /* padding lateral para secciones (móvil y desktop) */
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+@media (min-width: 640px) {
+  .container {
     padding-left: 0;
     padding-right: 0;
   }
@@ -70,11 +86,11 @@ header.navbar {
 
 /* 4) Contenedor centrado (clase reutilizable) */
 /* ———————————————————————————————— */
-.container {
+/* .container {
   max-width: 1024px;
   margin: 0 auto;
   padding: 0 1rem;
-}
+} */
 
 /* 5) Botón primario (estilo uniforme para todos) */
 /* ————————————————————————————————————————— */
