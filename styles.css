@@ -36,7 +36,7 @@ html, body {
   padding-right: 1rem;
 }
 
-/* A partir de 640px (sm), quitamos ese padding extra: */
+/* A partir de 640px (<­=639px mantienen padding, ≥640px lo quitan): */
 @media (min-width: 640px) {
   html, body {
     padding-left: 0;
@@ -54,7 +54,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 
-/* === AÑADIMOS padding lateral también al header en móvil === */
+/* === Mismo cambio para el header === */
 header.navbar {
   padding-left: 1rem;
   padding-right: 1rem;
@@ -62,8 +62,8 @@ header.navbar {
 
 @media (min-width: 640px) {
   header.navbar {
-  padding-left: 0rem;
-  padding-right: 0rem;
+    padding-left: 0;
+    padding-right: 0;
   }
 }
 
