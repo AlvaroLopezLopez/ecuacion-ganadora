@@ -1,8 +1,8 @@
 /* ==============================
-   styles.css (VERSIÓN REVISADA)
+   styles.css (VERSIÓN FINAL)
    ============================== */
 
-/* 1) Variables de color (único bloque) */
+/* 1) Variables de color */
 :root {
   --color-primary:   #264653;  /* Azul petróleo oscuro */
   --color-secondary: #E76F51;  /* Naranja terracota */
@@ -11,9 +11,6 @@
 }
 
 /* 2) Reset global + box-sizing + overflow-x */
-/* —————————————————————————— */
-/* 2) Reset global + box-sizing + overflow-x */
-/* —————————————————————————— */
 *,
 *::before,
 *::after {
@@ -22,7 +19,8 @@
   box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
   height: 100%;
   width: 100%;
   overflow-x: hidden;          /* Evita scroll horizontal indeseado */
@@ -30,22 +28,9 @@ html, body {
   font-family: "Inter", sans-serif;
   color: var(--color-dark);
   line-height: 1.6;
-  
-  /* === AÑADIDO: padding lateral en móvil === */
-  padding-left: 1rem;   /* 16px a cada lado en pantallas pequeñas */
-  padding-right: 1rem;
-}
-
-/* A partir de 640px (<­=639px mantienen padding, ≥640px lo quitan): */
-@media (min-width: 640px) {
-  html, body {
-    padding-left: 0;
-    padding-right: 0;
-  }
 }
 
 /* 3) Tipografías para headings y párrafos generales */
-/* ————————————————————————————————————— */
 h1, h2, h3, h4, h5, h6 {
   font-family: "Poppins", sans-serif;
   color: var(--color-primary);
@@ -53,47 +38,14 @@ h1, h2, h3, h4, h5, h6 {
   margin-bottom: 0.5rem;
 }
 
-
-/* === Header en móvil (<640px) === */
-header.navbar {
-  padding-left: 1rem;
-  padding-right: 1rem;
-}
-
-/* Cuando pantalla ≥640px, quitamos ese padding extra */
-@media (min-width: 640px) {
-  header.navbar {
-    padding-left: 0;
-    padding-right: 0;
-  }
-}
-
-/* ==== Clase .container (para el resto de secciones) ==== */
+/* 4) Contenedor centrado (sin padding lateral global) */
 .container {
   max-width: 1024px;
   margin: 0 auto;
-  /* padding lateral para secciones (móvil y desktop) */
-  padding-left: 1rem;
-  padding-right: 1rem;
-}
-@media (min-width: 640px) {
-  .container {
-    padding-left: 0;
-    padding-right: 0;
-  }
+  /* No se aplica padding horizontal aquí */
 }
 
-
-/* 4) Contenedor centrado (clase reutilizable) */
-/* ———————————————————————————————— */
-/* .container {
-  max-width: 1024px;
-  margin: 0 auto;
-  padding: 0 1rem;
-} */
-
-/* 5) Botón primario (estilo uniforme para todos) */
-/* ————————————————————————————————————————— */
+/* 5) Botón primario (estilo uniforme) */
 .btn-primary {
   display: inline-block;
   background-color: var(--color-primary);
@@ -105,15 +57,15 @@ header.navbar {
   font-weight: 700;
   text-decoration: none;
   transition: background-color 0.2s ease, transform 0.2s ease;
-  flex-shrink: 0;  /* No se encoja si falta espacio */
+  flex-shrink: 0; /* No se encoja si falta espacio */
 }
+
 .btn-primary:hover {
   background-color: var(--color-secondary);
   transform: translateY(-2px);
 }
 
 /* 6) Tarjeta (card) común para servicios, testimonios, etc. */
-/* ————————————————————————————————————————————————— */
 .card {
   background-color: white;
   border-radius: 0.75rem;
@@ -121,53 +73,59 @@ header.navbar {
   padding: 1.5rem;
   transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.5s ease;
 }
+
 .card:hover {
   transform: translateY(-0.5rem);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
 }
 
-/* En styles.css */
+/* Titulares de servicios centrados */
 .servicios .card h3 {
   text-align: center;
 }
 
-
-/* 7) Grid responsivo de 3 columnas como base */
-/* —————————————————————————————————————————— */
+/* 7) Grid responsivo de 3 columnas */
 .grid-3 {
   display: grid;
   gap: 1.5rem;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 }
 
-/* 8) Fade-up (animación de scroll): clases y estado “visible” */
-/* ———————————————————————————————————————————— */
+/* 8) Animaciones fade-up */
 .fade-up {
   opacity: 0;
   transform: translateY(2rem);
   transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
+
 .fade-up.visible {
   opacity: 1;
   transform: translateY(0);
 }
 
-/* 9) Navbar: logo, título y botón alineados verticalmente centrados */
-/* ———————————————————————————————————————————————— */
+/* 9) Navbar: padding solo en móvil, sin afectar a .container */
 header.navbar {
   display: flex;
   justify-content: space-between;
-  align-items: center;   /* CENTRA verticalmente logo, título y botón */
-  padding: 1rem 1rem;    /* Espacio arriba/abajo y algo a los lados */
+  align-items: center;   /* Centra verticalmente logo, título y botón */
+  padding-left: 1rem;    /* 16px de margen en móvil */
+  padding-right: 1rem;
 }
 
-/* Altura fija para el logo y no se encoja */
+@media (min-width: 640px) {
+  header.navbar {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+/* Altura fija para el logo */
 header.navbar .logo {
   height: 8rem;
   flex-shrink: 0;
 }
 
-/* Título en el centro del header */
+/* Título centrado en el header */
 .header-title {
   flex: 1;
   text-align: center;
@@ -175,37 +133,28 @@ header.navbar .logo {
   line-height: 1.2;
   color: var(--color-dark);
   white-space: nowrap;
-  margin: 0; /* elimina márgenes extra */
+  margin: 0;
 }
+
 @media (max-width: 640px) {
   .header-title {
-    font-size: 1.25rem; /* texto más pequeño en móvil */
+    font-size: 1.25rem;
   }
 }
 
-/* Ajuste extra: animación fade-up */
-.fade-up {
-  opacity: 0;
-  transform: translateY(2rem);
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-}
-.fade-up.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
 /* 10) Hero (sección principal) */
-/* ————————————————————————— */
 .hero {
   background-color: var(--color-secondary);
   color: white;
   text-align: center;
-  padding: 4rem 1rem;
+  padding: 4rem 1rem; /* padding vertical + 1rem horizontal interno */
 }
+
 .hero h1 {
   font-size: 2.5rem;
   margin-bottom: 1rem;
 }
+
 .hero p {
   font-size: 1.125rem;
   margin-bottom: 2rem;
@@ -213,6 +162,7 @@ header.navbar .logo {
   margin-left: auto;
   margin-right: auto;
 }
+
 @media (min-width: 768px) {
   .hero h1 {
     font-size: 3.5rem;
@@ -223,10 +173,10 @@ header.navbar .logo {
 }
 
 /* 11) Sección “Servicios” (modalidades de clase) */
-/* ————————————————————————————————————————— */
 .servicios {
-  padding: 3rem 0;
+  padding: 3rem 0; /* solo padding vertical */
 }
+
 .servicios h2 {
   text-align: center;
   font-size: 2rem;
@@ -234,33 +184,38 @@ header.navbar .logo {
 }
 
 /* 12) Sección “Sobre mí” (About) */
-/* —————————————————————————————————— */
 .about-section {
   display: grid;
   gap: 2rem;
   align-items: center;
-  padding: 3rem 0;
+  padding: 3rem 0; /* solo padding vertical */
 }
+
 @media (min-width: 768px) {
   .about-section {
     grid-template-columns: 1fr 1fr;
   }
 }
+
 .about-section img {
   width: 100%;
   border-radius: 0.75rem;
 }
+
 .about-text h2 {
   font-size: 1.75rem;
   margin-bottom: 1rem;
 }
+
 .about-text p {
   margin-top: 0.5rem;
 }
+
 .about-text .highlight {
   margin-top: 1rem;
   font-weight: 600;
 }
+
 .about-text .social-link {
   margin-top: 1rem;
   display: inline-flex;
@@ -270,9 +225,11 @@ header.navbar .logo {
   font-weight: 500;
   transition: color 0.2s ease;
 }
+
 .about-text .social-link:hover {
   color: var(--color-secondary);
 }
+
 .about-text .social-link svg {
   width: 1.25rem;
   height: 1.25rem;
@@ -281,32 +238,35 @@ header.navbar .logo {
 }
 
 /* 13) Sección “Testimonios” */
-/* ————————————————————————————————— */
 .testimonios {
-  padding: 3rem 0;
+  padding: 3rem 0; /* solo padding vertical */
   position: relative;
-  overflow: hidden; /* oculta cualquier pseudo-elemento desbordado */
+  overflow: hidden; /* oculta pseudo-elementos desbordados */
 }
+
 .testimonios h2 {
   text-align: center;
   font-size: 2rem;
   margin-bottom: 2rem;
   color: var(--color-dark);
 }
+
 .testimonios .grid-3 {
   max-width: 1024px;
   margin: 0 auto;
-  padding: 0 1rem;
+  padding: 0 1rem; /* 1rem de padding interno para centrar en móvil */
 }
 
-/* Cada tarjeta de testimonio: opacidad inicial, “fade-up” y retrasos */
+/* Cada tarjeta de testimonio: se revelan con fade-up */
 .testimonios .card {
-  opacity: 0; /* para animar, se revelan al hacerse .visible */
+  opacity: 0; /* visible al añadirse .visible */
 }
+
 .testimonios .card.visible {
   opacity: 1;
   transform: translateY(0);
 }
+
 .testimonios .delay-0  { transition-delay: 0s; }
 .testimonios .delay-1  { transition-delay: 0.1s; }
 .testimonios .delay-2  { transition-delay: 0.2s; }
@@ -319,6 +279,7 @@ header.navbar .logo {
   border-radius: 50%;
   opacity: 0.15;
 }
+
 .testimonios::before {
   width: 300px;
   height: 300px;
@@ -326,6 +287,7 @@ header.navbar .logo {
   top: -100px;
   left: -100px;
 }
+
 .testimonios::after {
   width: 500px;
   height: 500px;
@@ -333,10 +295,12 @@ header.navbar .logo {
   bottom: -200px;
   right: -200px;
 }
+
 .testimonios blockquote {
   font-style: italic;
   color: var(--color-dark);
 }
+
 .testimonios blockquote span {
   display: block;
   margin-top: 0.5rem;
@@ -345,32 +309,34 @@ header.navbar .logo {
 }
 
 /* 14) Sección “Contacto” */
-/* ————————————————————————— */
 .contacto {
-  padding: 3rem 0;
+  padding: 3rem 0; /* solo padding vertical */
   text-align: center;
 }
+
 .contacto h2 {
   font-size: 2rem;
   margin-bottom: 1rem;
 }
+
 .contacto p {
   margin-bottom: 1rem;
 }
 
 /* 15) Footer (pie de página) */
-/* —————————————————————————————— */
 footer {
   background-color: var(--color-dark);
   color: var(--color-light);
-  padding: 3rem 1rem;
+  padding: 3rem 1rem; /* 1rem de padding horizontal interno */
   margin-top: 4rem;
   text-align: center;
   font-size: 0.9rem;
 }
+
 .footer-links {
   margin-top: 0.5rem;
 }
+
 .footer-links a {
   margin: 0 0.5rem;
   color: var(--color-light);
@@ -379,9 +345,11 @@ footer {
   align-items: center;
   transition: color 0.2s ease;
 }
+
 .footer-links a:hover {
   color: var(--color-secondary);
 }
+
 .footer-links svg {
   width: 1.25rem;
   height: 1.25rem;
@@ -389,24 +357,19 @@ footer {
 }
 
 /* 16) Margen extra entre cada sección */
-/* ——————————————————————————————————— */
 section {
   margin: 4rem 0;
 }
 
-
-/* ==== Tus estilos actuales… ==== */
-/* … */
-
-/* ===== Watermark rotado a 45° cubriendo TODO el fondo ===== */
+/* 17) Marca de agua con logo rotado a 45° */
 html {
   position: relative; 
-  z-index: 1; /* Para que el contenido vaya por encima del watermark */
+  z-index: 1; /* mantiene el contenido por encima */
 }
 
 html::before {
   content: "";
-  position: fixed;        /* fijo para cubrir viewport completo */
+  position: fixed;        /* cubre todo el viewport */
   top: -50%;
   left: -50%;
   width: 200%;
@@ -414,12 +377,10 @@ html::before {
   background-image: url("assets/logo.svg");
   background-repeat: repeat;
   background-size: 150px 150px; /* ajusta el tamaño del logo */
-  opacity: 0.08;          /* muy baja opacidad para que parezca marca de agua */
+  opacity: 0.08;          /* muy baja para efecto marca de agua */
   transform: rotate(-45deg);
-  pointer-events: none;    /* que no interfiera con clicks ni inputs */
-  z-index: 0;              /* por debajo de todo el contenido */
+  pointer-events: none;   /* no bloquea clicks */
+  z-index: 0;             /* por debajo de todo el contenido */
 }
 
-
-
-/* ————————————————————————————————————— End of styles.css ————————————————————————— */
+/* ————————————————————————————————————— End of styles.css ————————————————————————— */ 
