@@ -1,105 +1,280 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Academia de refuerzo: matemáticas y más. Aprende, Entrena y Triunfa con Álvaro López López.">
+  <!-- 1) Metadatos obligatorios -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta
+    name="description"
+    content="Academia de refuerzo: matemáticas y más. Aprende, Entrena y Triunfa con Álvaro López López."
+  />
   <title>Ecuación Ganadora – Aprende, Entrena y Triunfa</title>
+
+  <!-- 2) Google Fonts: Poppins (headings) e Inter (body) -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Poppins:wght@700;900&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- 3) Hoja de estilos principal -->
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- 4) Tailwind CSS vía CDN y configuración -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            primary: '#C62828',
-            secondary: '#1A4B91',
-            dark: '#2A2E37',
-            light: '#FFF8F7'
-          }
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          primary: "#264653",
+          secondary: "#E76F51",
+          dark: "#0A0F2C",
+          light: "#F4F1DE"
+        },
+        fontFamily: {
+          heading: ["Poppins", "sans-serif"],
+          body: ["Inter", "sans-serif"]
         }
       }
     }
-  </script>
+  };
+</script>
+
+
+
+  <!-- 5) AOS (Animate On Scroll) -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 </head>
-<body class="font-sans text-dark bg-light">
-  <!-- Navbar -->
-  <header class="bg-white shadow">
-    <div class="max-w-6xl mx-auto px-6 flex justify-between items-center h-20">
-      <img src="assets/logo.svg" alt="Ecuación Ganadora logo" class="h-12">
-      <a href="https://wa.me/34626092080?text=Hola%20%C2%A1Quiero%20informaci%C3%B3n%20sobre%20las%20clases%20en%20Ecuaci%C3%B3n%20Ganadora!" class="bg-secondary text-white px-4 py-2 rounded-lg hover:bg-primary transition">WhatsApp</a>
-    </div>
+
+<body>
+  <!-- ===== Navbar ===== -->
+  <header class="navbar container">
+    <img src="assets/logo.svg" alt="Ecuación Ganadora logo" class="logo" />
+    
+    <h1 class="header-title font-heading">
+      Ecuación Ganadora
+    </h1>
+    
+    <a
+      href="https://wa.me/34626092080?text=Hola%20%C2%A1Quiero%20información%20sobre%20las%20clases%20en%20Ecuación%20Ganadora!"
+      class="btn-primary"
+    >
+      WhatsApp
+    </a>
   </header>
 
-  <!-- Hero -->
-  <section class="py-20 bg-secondary text-white text-center">
-    <h1 class="text-4xl md:text-6xl font-extrabold mb-4">Aprende, Entrena y Triunfa</h1>
-    <p class="text-xl md:text-2xl mb-8 max-w-2xl mx-auto">Clases de refuerzo, matemáticas y más para ESO y Bachillerato, con 100 % de aprobados.</p>
-    <a href="#contacto" class="bg-primary px-6 py-3 rounded-lg text-lg hover:opacity-90">Reserva tu sesión diagnóstica</a>
+  <!-- ===== Hero ===== -->
+  <section class="hero fade-up">
+    <h1 class="font-heading text-4xl md:text-6xl font-black mb-4">
+      Aprende, Entrena y Triunfa
+    </h1>
+    <p class="font-body text-xl md:text-2xl mb-8 max-w-2xl mx-auto">
+      Clases de refuerzo, matemáticas y más para ESO y Bachillerato, con 100 % de aprobados.
+    </p>
+    <a href="#contacto" class="btn-primary font-heading text-lg hover:opacity-90">
+      Reserva tu sesión diagnóstica
+    </a>
   </section>
 
-  <!-- Servicios -->
-  <section id="servicios" class="py-16 max-w-6xl mx-auto px-6">
-    <h2 class="text-3xl font-bold text-center mb-12">Modalidades de clase</h2>
-    <div class="grid md:grid-cols-3 gap-8">
-      <div class="bg-white p-8 shadow rounded-lg">
-        <h3 class="text-xl font-semibold mb-4">Individuales 1‑to‑1</h3>
-        <p>Plan totalmente personalizado. Ritmo marcado por ti.</p>
+  <!-- ===== Servicios ===== -->
+  <section id="servicios" class="servicios container">
+    <h2 class="font-heading text-3xl font-bold text-center mb-8 fade-up">
+      Modalidades de clase
+    </h2>
+    <div class="grid-3">
+      <div class="card fade-up">
+        <h3 class="font-heading text-xl font-semibold mb-2">Individuales 1-to-1</h3>
+        <p class="font-body text-base">
+          Plan totalmente personalizado. Ritmo marcado por ti.
+        </p>
       </div>
-      <div class="bg-white p-8 shadow rounded-lg">
-        <h3 class="text-xl font-semibold mb-4">Grupales reducidas</h3>
-        <p>Máx. 5 alumnos. Aprendizaje colaborativo y feedback constante.</p>
+      <div class="card fade-up delay-1">
+        <h3 class="font-heading text-xl font-semibold mb-2">Grupales reducidas</h3>
+        <p class="font-body text-base">
+          Máx. 5 alumnos. Aprendizaje colaborativo y feedback constante.
+        </p>
       </div>
-      <div class="bg-white p-8 shadow rounded-lg">
-        <h3 class="text-xl font-semibold mb-4">Intensivos</h3>
-        <p>Prepara exámenes finales o EVAU con simulacros y estrategia.</p>
+      <div class="card fade-up delay-2">
+        <h3 class="font-heading text-xl font-semibold mb-2">Intensivos</h3>
+        <p class="font-body text-base">
+          Prepara exámenes finales o EVAU con simulacros y estrategia.
+        </p>
       </div>
     </div>
-    <p class="text-center mt-8">Consulta sin compromiso para conocer precios y disponibilidad.</p>
+    <p class="font-body text-base text-center mt-6 fade-up">
+      Consulta sin compromiso para conocer precios.
+    </p>
   </section>
 
-  <!-- Sobre mí -->
-  <section id="sobre-mi" class="py-16 bg-light">
-    <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-10 items-center">
-      <img src="assets/foto-alvaro.jpg" alt="Álvaro López López" class="rounded-2xl shadow-md">
-      <div>
-        <h2 class="text-3xl font-bold mb-4">Sobre Álvaro</h2>
-        <p>Soy Álvaro López López, graduado en Matemáticas, con máster en Educación Secundaria y un segundo máster en Inteligencia Artificial. He ayudado a decenas de estudiantes a alcanzar el 100 % de aprobados mediante una metodología que mezcla explicación clara, práctica intensiva y seguimiento individual.</p>
-        <p class="mt-4 font-semibold">¡Tu éxito académico es nuestra ecuación ganadora!</p>
-      </div>
+  <!-- ===== Sobre Álvaro ===== -->
+  <section id="sobre-mi" class="about-section container">
+    <img
+      src="assets/foto-alvaro.jpg"
+      alt="Álvaro López López, profesor de Matemáticas"
+      class="fade-up max-w-xs w-full mx-auto md:mx-0"
+      loading="lazy"
+    />
+    <div class="about-text fade-up delay-1">
+      <h2 class="font-heading text-2xl font-bold mb-2">Sobre Álvaro</h2>
+      <p class="font-body text-base">
+        Soy Álvaro López López, graduado en Matemáticas, con máster en Educación Secundaria y un segundo
+        máster en Inteligencia Artificial. He ayudado a decenas de estudiantes a alcanzar el 100 % de
+        aprobados mediante una metodología que mezcla explicación clara, práctica intensiva y seguimiento individual.
+      </p>
+      <p class="font-body text-base mt-4 font-semibold highlight">
+        ¡Tu éxito académico es nuestra ecuación ganadora!
+      </p>
+      <a
+        href="https://www.linkedin.com/in/alvarolopezlopez2000"
+        target="_blank"
+        class="social-link mt-4 inline-flex items-center font-body"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 34 34" class="w-5 h-5 mr-2" role="img" aria-label="LinkedIn">
+          <title>LinkedIn</title>
+          <g>
+            <path d="M34,17 C34,7.611 26.389,0 17,0 C7.611,0 0,7.611 0,17 C0,26.389 7.611,34 17,34 C26.389,34 34,26.389 34,17 Z 
+              M10.052,26.091 L5.291,26.091 L5.291,13.793 L10.052,13.793 L10.052,26.091 Z 
+              M7.671,11.235 C6.051,11.235 4.783,9.965 4.783,8.346 C4.783,6.726 6.051,5.458 7.671,5.458 
+              C9.292,5.458 10.556,6.726 10.556,8.346 C10.556,9.965 9.292,11.235 7.671,11.235 Z 
+              M28.125,26.091 L23.365,26.091 L23.365,19.393 C23.365,17.267 23.326,14.682 20.411,14.682 
+              C17.456,14.682 17.079,17.019 17.079,19.294 L17.079,26.091 L12.317,26.091 
+              L12.317,13.793 L16.939,13.793 L16.939,15.328 C17.616,14.16 19.137,12.942 21.666,12.942 
+              C26.841,12.942 28.125,15.927 28.125,19.997 L28.125,26.091 Z"/>
+          </g>
+        </svg>
+        Ver mi LinkedIn
+      </a>
     </div>
   </section>
 
-  <!-- Testimonios -->
-  <section id="testimonios" class="py-16 max-w-6xl mx-auto px-6">
-    <h2 class="text-3xl font-bold text-center mb-12">Lo que dicen nuestros alumnos</h2>
-    <div class="grid md:grid-cols-3 gap-8">
-      <blockquote class="bg-white p-6 rounded-lg shadow italic">“Aprobé Matemáticas con notable después de suspender todo el año. ¡Gracias Álvaro!” <br><span class="font-bold not-italic">— Marta, 4º ESO</span></blockquote>
-      <blockquote class="bg-white p-6 rounded-lg shadow italic">“El intensivo EVAU me subió 2 puntos y entré en la carrera que quería.” <br><span class="font-bold not-italic">— Diego, 2º Bach</span></blockquote>
-      <blockquote class="bg-white p-6 rounded-lg shadow italic">“Las clases online son súper claras y puedo ver las grabaciones.” <br><span class="font-bold not-italic">— Lucía, 1º Bach</span></blockquote>
+  <!-- ===== Testimonios ===== -->
+  <section id="testimonios" class="testimonios container">
+    <h2 class="font-heading text-3xl font-bold text-center mb-8 fade-up">
+      Lo que dicen nuestros alumnos
+    </h2>
+    <div class="grid-3">
+      <blockquote id="testimonial-1" class="card fade-up delay-0 font-body italic text-base">
+        <!-- Se inyecta contenido vía JS -->
+        <span class="block mt-2 font-heading text-sm text-secondary">— Autor</span>
+      </blockquote>
+      <blockquote id="testimonial-2" class="card fade-up delay-1 font-body italic text-base">
+        <span class="block mt-2 font-heading text-sm text-secondary">— Autor</span>
+      </blockquote>
+      <blockquote id="testimonial-3" class="card fade-up delay-2 font-body italic text-base">
+        <span class="block mt-2 font-heading text-sm text-secondary">— Autor</span>
+      </blockquote>
     </div>
   </section>
 
-  <!-- Contacto -->
-  <section id="contacto" class="py-16 bg-secondary text-white">
-    <div class="max-w-3xl mx-auto px-6 text-center">
-      <h2 class="text-3xl font-bold mb-4">Reserva tu plaza</h2>
-      <p class="mb-8">Respondo rápido (< 24 h). Puedes escribirme por WhatsApp o rellenar el formulario.</p>
-      <a href="https://wa.me/34626092080?text=Hola%20%C2%A1Quiero%20informaci%C3%B3n%20sobre%20las%20clases%20en%20Ecuaci%C3%B3n%20Ganadora!" class="inline-block bg-primary px-6 py-3 rounded-lg text-lg font-semibold mb-8 hover:opacity-90">Escribirme por WhatsApp</a>
-      <!-- Formspree placeholder -->
-      <form action="https://formspree.io/f/tu-id" method="POST" class="bg-white rounded-lg p-6 shadow-md text-dark">
-        <div class="grid md:grid-cols-2 gap-4">
-          <input type="text" name="nombre" placeholder="Tu nombre" class="border p-3 rounded w-full">
-          <input type="email" name="email" placeholder="Tu email" class="border p-3 rounded w-full">
-        </div>
-        <textarea name="mensaje" rows="4" placeholder="Cuéntame qué asignaturas y curso necesitas…" class="border p-3 rounded w-full my-4"></textarea>
-        <button type="submit" class="bg-secondary text-white px-6 py-3 rounded-lg hover:opacity-90">Enviar mensaje</button>
-      </form>
-    </div>
+  <!-- ===== Contacto ===== -->
+  <section id="contacto" class="contacto container">
+    <h2 class="font-heading text-2xl font-bold mb-4 fade-up">Reserva tu plaza</h2>
+    <p class="font-body text-base mb-4 fade-up">
+      Respondo rápido. Escríbeme directamente por WhatsApp:
+    </p>
+    <a
+      href="https://wa.me/34626092080?text=Hola%20%C2%A1Quiero%20información%20sobre%20las%20clases%20en%20Ecuación%20Ganadora!"
+      class="btn-primary font-heading text-lg fade-up"
+    >
+      Escribirme por WhatsApp
+    </a>
   </section>
 
-  <!-- Footer -->
-  <footer class="bg-dark text-light py-8 text-center">
-    <p>© 2025 Ecuación Ganadora · Calle Miguel Grau 1 · +34 626 09 20 80</p>
+  <!-- ===== Footer ===== -->
+  <footer>
+    <p class="font-body text-base">
+      © 2025 Ecuación Ganadora · Calle Miguel Grau 1 · +34 626 09 20 80
+    </p>
+    <div class="footer-links">
+      <a href="https://www.linkedin.com/in/alvarolopezlopez2000" target="_blank">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 34 34" class="w-5 h-5 mr-1" role="img" aria-label="LinkedIn">
+          <title>LinkedIn</title>
+          <g>
+            <path d="M34,17 C34,7.611 26.389,0 17,0 C7.611,0 0,7.611 0,17 C0,26.389 7.611,34 17,34 C26.389,34 34,26.389 34,17 Z 
+              M10.052,26.091 L5.291,26.091 L5.291,13.793 L10.052,13.793 L10.052,26.091 Z 
+              M7.671,11.235 C6.051,11.235 4.783,9.965 4.783,8.346 C4.783,6.726 6.051,5.458 7.671,5.458 
+              C9.292,5.458 10.556,6.726 10.556,8.346 C10.556,9.965 9.292,11.235 7.671,11.235 Z 
+              M28.125,26.091 L23.365,26.091 L23.365,19.393 C23.365,17.267 23.326,14.682 20.411,14.682 
+              C17.456,14.682 17.079,17.019 17.079,19.294 L17.079,26.091 L12.317,26.091 
+              L12.317,13.793 L16.939,13.793 L16.939,15.328 C17.616,14.16 19.137,12.942 21.666,12.942 
+              C26.841,12.942 28.125,15.927 28.125,19.997 L28.125,26.091 Z"/>
+          </g>
+        </svg>
+        Álvaro en LinkedIn
+      </a>
+    </div>
   </footer>
+
+<!-- ===== Scripts (AOS, Observer y rotación de testimonios aleatoria) ===== -->
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    // Inicializar AOS
+    AOS.init({ once: true });
+
+    // IntersectionObserver para animar .fade-up
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+    document.querySelectorAll(".fade-up").forEach((el) => observer.observe(el));
+
+    // Cargar testimonios desde assets/testimonios.json
+    fetch("assets/testimonios.json")
+      .then((res) => {
+        if (!res.ok) throw new Error("No se encontró assets/testimonios.json");
+        return res.json();
+      })
+      .then((allTestimonials) => {
+        const t1 = document.getElementById("testimonial-1");
+        const t2 = document.getElementById("testimonial-2");
+        const t3 = document.getElementById("testimonial-3");
+
+        function getRandomIndices(total, count) {
+          // Devuelve un array de 'count' índices distintos entre 0 y total-1
+          const indices = new Set();
+          while (indices.size < count) {
+            indices.add(Math.floor(Math.random() * total));
+          }
+          return Array.from(indices);
+        }
+
+        function updateTestimonials() {
+          // Elegir 3 índices aleatorios
+          const [i1, i2, i3] = getRandomIndices(allTestimonials.length, 3);
+
+          // Tomar los testimonios correspondientes
+          const a = allTestimonials[i1];
+          const b = allTestimonials[i2];
+          const c = allTestimonials[i3];
+
+          // Fade‐out
+          [t1, t2, t3].forEach((el) => (el.style.opacity = "0"));
+
+          setTimeout(() => {
+            // Inyectar contenido
+            t1.innerHTML = `<p>${a.text}</p><span>— ${a.author}</span>`;
+            t2.innerHTML = `<p>${b.text}</p><span>— ${b.author}</span>`;
+            t3.innerHTML = `<p>${c.text}</p><span>— ${c.author}</span>`;
+
+            // Fade‐in
+            [t1, t2, t3].forEach((el) => (el.style.opacity = "1"));
+          }, 500);
+        }
+
+        // Mostrar la primera tanda y luego cada 5 segundos
+        updateTestimonials();
+        setInterval(updateTestimonials, 5000);
+      })
+      .catch((err) => console.error("Error cargando testimonios:", err));
+  });
+</script>
+
 </body>
 </html>

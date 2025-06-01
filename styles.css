@@ -1,0 +1,608 @@
+/* styles.css */
+
+
+/* ===== Variables de color ===== */
+/* :root {
+  --color-primary: #1A4B91;
+  --color-secondary: #FFC438;
+  --color-dark: #1F2937;
+  --color-light: #F9FAFB;
+} */
+
+:root {
+  --color-primary: #264653;   /* Azul petróleo oscuro */
+  --color-secondary: #E76F51; /* Naranja terracota */
+  --color-dark: #0A0F2C;      /* Azul muy oscuro para texto */
+  --color-light: #F4F1DE;     /* Beige suave para fondos */
+}
+
+
+/* ===== Reset y tipografías globales ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  background-color: var(--color-light);
+  /* Aplicamos Inter al body */
+  font-family: "Inter", sans-serif;
+  color: var(--color-dark);
+  line-height: 1.6;
+}
+
+/* Si tienes reglas propias para headings, asegúrate de referir a "heading" */
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Poppins", sans-serif;
+  color: var(--color-primary);
+  margin-bottom: 0.5rem;
+  line-height: 1.2;
+}
+
+
+
+/* ————— Navbar ————— */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* padding: 1rem 0; */
+}
+
+/* Altura del logo */
+.navbar .logo {
+  height: 3rem;
+}
+
+
+/* ===== Sección Servicios ===== */
+.servicios {
+  padding: 3rem 0;
+}
+
+.servicios h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+.servicios .grid-3 {
+  /* ya tenemos .grid-3 definido globalmente, así que no hace falta repetir propiedades aquí */
+  /* Si quieres un máximo de ancho centrado: */
+  max-width: 1024px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.servicios .card h3 {
+  font-size: 1.25rem;
+  margin-bottom: 0.75rem;
+}
+
+.servicios p {
+  text-align: center;
+  margin-top: 1.5rem;
+}
+
+/* ===== Sección “Sobre mí” ===== */
+.about-section {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  align-items: center;
+  padding: 3rem 0;
+}
+@media (min-width: 768px) {
+  .about-section {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.about-section img {
+  width: 100%;
+  border-radius: 0.75rem;
+}
+
+.about-text h2 {
+  font-size: 1.75rem;
+  margin-bottom: 1rem;
+}
+
+.about-text p {
+  margin-top: 0.5rem;
+}
+
+.about-text .highlight {
+  margin-top: 1rem;
+  font-weight: 600;
+}
+
+.about-text .social-link {
+  margin-top: 1rem;
+  display: inline-flex;
+  align-items: center;
+  color: var(--color-primary);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+.about-text .social-link:hover {
+  color: var(--color-secondary);
+}
+.about-text .social-link svg {
+  width: 1.25rem;
+  height: 1.25rem;
+  margin-right: 0.5rem;
+  fill: currentColor;
+}
+
+/* ===== Clase para retraso en animaciones fade-up ===== */
+.delay-1 {
+  transition-delay: 0.1s;
+}
+
+
+/* ===== Sección Testimonios ===== */
+.testimonios {
+  padding: 3rem 0;
+}
+
+.testimonios h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+.testimonios .grid-3 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  max-width: 1024px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Estilos para cada tarjeta de testimonio */
+.testimonios .card {
+  background-color: white;
+  border-radius: 0.75rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  padding: 1.5rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.5s ease;
+  opacity: 1; /* inicialmente opaco */
+}
+
+/* Hover en tarjeta */
+.testimonios .card:hover {
+  transform: translateY(-0.5rem);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+/* Al inicio de la animación fade-up, cada card está invisible */
+.testimonios .card.fade-up {
+  opacity: 0;
+  transform: translateY(2rem);
+}
+
+/* Cuando IntersectionObserver añade .visible, se anima a opacidad 1 y translateY(0) */
+.testimonios .card.fade-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Retrasos para cada tarjeta según índice */
+.testimonios .delay-0  { transition-delay: 0s; }
+.testimonios .delay-1  { transition-delay: 0.1s; }
+.testimonios .delay-2  { transition-delay: 0.2s; }
+
+/* ===== Bloques decorativos (círculos) ===== */
+.testimonios {
+  position: relative;
+  overflow: hidden;
+}
+.testimonios::before,
+.testimonios::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.15;
+}
+.testimonios::before {
+  width: 300px;
+  height: 300px;
+  background-color: var(--color-primary);
+  top: -100px;
+  left: -100px;
+}
+.testimonios::after {
+  width: 500px;
+  height: 500px;
+  background-color: var(--color-secondary);
+  bottom: -200px;
+  right: -200px;
+}
+
+/* Títulos dentro de testimonios */
+.testimonios h2 {
+  color: var(--color-dark);
+}
+.testimonios blockquote {
+  font-style: italic;
+  color: var(--color-dark);
+}
+.testimonios blockquote span {
+  display: block;
+  margin-top: 0.5rem;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+
+/* ===== Sección Contacto ===== */
+.contacto {
+  padding: 3rem 0;
+  text-align: center;
+}
+
+.contacto h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.contacto p {
+  margin-bottom: 1rem;
+}
+
+/* ===== Footer ===== */
+/* footer {
+  background-color: var(--color-dark);
+  color: var(--color-light);
+  padding: 2rem 1rem;
+  text-align: center;
+  font-size: 0.9rem;
+} */
+
+.footer-links {
+  margin-top: 0.5rem;
+}
+
+.footer-links a {
+  margin: 0 0.5rem;
+  color: var(--color-light);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  transition: color 0.2s ease;
+}
+
+.footer-links a:hover {
+  color: var(--color-secondary);
+}
+
+.footer-links svg {
+  width: 1.25rem;
+  height: 1.25rem;
+  margin-right: 0.25rem;
+}
+
+
+/* ===== Espacio extra entre secciones ===== */
+section {
+  /* añade 4rem de espacio arriba y abajo de cada sección */
+  margin: 4rem 0;
+}
+
+/* 
+.hero {
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+}
+
+.servicios {
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+}
+
+.about-section {
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+}
+
+.testimonios {
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+}
+
+.contacto {
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+} */
+
+footer {
+  background-color: var(--color-dark);
+  color: var(--color-light);
+  /* antes tenías: padding: 2rem 1rem; */
+  padding: 3rem 1rem;    /* ahora más padding vertical */
+  margin-top: 4rem;      /* espacio extra sobre la sección anterior */
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+
+
+/* ===== Fondo con patrón de ecuaciones/símbolos matemáticos para toda la página ===== */
+/* Lo aplicamos a html y body para asegurarnos de que cubra todo */
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: var(--color-light);
+  /* SVG en data URI: símbolos dispersos con OPACIDAD AUMENTADA (0.12 en lugar de 0.05) */
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 400 400'><text x='20' y='40' fill='%231F2937' font-size='24' opacity='0.12'>sin(x) = 1</text><text x='180' y='80' fill='%231F2937' font-size='24' opacity='0.12'>√(x²+y²)</text><text x='320' y='150' fill='%231F2937' font-size='24' opacity='0.12'>π ≈ 3.14</text><text x='60' y='200' fill='%231F2937' font-size='24' opacity='0.12'>10/10</text><text x='240' y='240' fill='%231F2937' font-size='24' opacity='0.12'>100%</text><text x='140' y='300' fill='%231F2937' font-size='24' opacity='0.12'>∑ aᵢ</text><text x='300' y='320' fill='%231F2937' font-size='24' opacity='0.12'>x + y = z</text></svg>");
+  background-repeat: repeat;
+  background-size: 200px 200px;
+}
+
+/* ===== Pseudo-elementos: círculos grandes semitransparentes ===== */
+html::before,
+html::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  opacity: 0.15;
+}
+
+html::before {
+  width: 500px;
+  height: 500px;
+  background-color: var(--color-primary);
+  top: -150px;
+  left: -150px;
+}
+
+html::after {
+  width: 700px;
+  height: 700px;
+  background-color: var(--color-secondary);
+  bottom: -350px;
+  right: -350px;
+}
+
+/* ===== Asegurar que el contenido principal esté encima ===== */
+header,
+main,
+section,
+footer {
+  position: relative;
+  z-index: 1;
+}
+
+header.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* height: 80px;  ← quita esta línea */
+  padding: 0 1rem;
+}
+
+
+/* Logo: fijas su altura y evitas que crezca o encoja */
+header.navbar .logo {
+  height: 3rem;
+  flex-shrink: 0;
+}
+
+.header-title {
+  flex: 1;
+  text-align: center;
+  margin: 0;               /* sin márgenes arriba/abajo */
+  font-size: 1.75rem;      /* o incluso 1.5rem si quieres que ocupe menos */
+  line-height: 1.2;        /* así queda más compacto verticalmente */
+  color: var(--color-dark);
+  white-space: nowrap;
+}
+
+/* Si quieres disminuir aún más en pantallas pequeñas, añade: */
+@media (max-width: 640px) {
+  .header-title {
+    font-size: 1.25rem;     /* tamaño aún más pequeño en móvil */
+  }
+}
+
+
+/* Ajuste en el boton, si quieres que sea igual de alto que el header */
+.btn-primary {
+  background-color: var(--color-primary);
+  color: var(--color-light);
+  padding: 0.75rem 1.5rem;
+  border: 2px solid var(--color-primary);
+  border-radius: 0.5rem;
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  text-decoration: none;
+  display: inline-block;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+  flex-shrink: 0; /* impide que el botón se encoja si no hay espacio */
+}
+
+.btn-primary:hover {
+  background-color: var(--color-secondary);
+  color: var(--color-light);
+  transform: translateY(-2px);
+}
+
+
+
+
+/* ===== Reset básico y estilos generales ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  color: var(--color-dark);
+  line-height: 1.6;
+}
+
+/* ===== Contenedor centrado ===== */
+.container {
+  max-width: 1024px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.btn-primary {
+  background-color: var(--color-primary);   /* #264653 */
+  color: var(--color-light);                 /* #F4F1DE */
+  padding: 0.75rem 1.5rem;
+  border: 2px solid var(--color-primary);
+  border-radius: 0.5rem;
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  text-decoration: none;
+  display: inline-block;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.btn-primary:hover {
+  background-color: var(--color-secondary); /* #E76F51 */
+  color: var(--color-light);                 /* mantener texto claro */
+  transform: translateY(-2px);
+}
+
+
+/* ===== Tarjetas con elevación en hover ===== */
+.card {
+  background-color: white;
+  border-radius: 0.75rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  padding: 1.5rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.card:hover {
+  transform: translateY(-0.5rem);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+/* ===== Grid responsivo ===== */
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+/* ===== Sección “Hero” ===== */
+.hero {
+  background-color: var(--color-secondary);
+  color: white;
+  text-align: center;
+  padding: 4rem 1rem;
+}
+.hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+.hero p {
+  font-size: 1.125rem;
+  margin-bottom: 2rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+@media (min-width: 768px) {
+  .hero h1 {
+    font-size: 3.5rem;
+  }
+  .hero p {
+    font-size: 1.25rem;
+  }
+}
+
+/* ===== Animaciones “fade-up” al hacer scroll ===== */
+.fade-up {
+  opacity: 0;
+  transform: translateY(2rem);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+.fade-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===== Sección “Sobre mí” ===== */
+.about-section {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  align-items: center;
+  padding: 3rem 0;
+}
+@media (min-width: 768px) {
+  .about-section {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+.about-section img {
+  width: 100%;
+  border-radius: 0.75rem;
+}
+.about-text h2 {
+  font-size: 1.75rem;
+  margin-bottom: 1rem;
+}
+.about-text p {
+  margin-top: 0.5rem;
+}
+.about-text .social-link {
+  margin-top: 1rem;
+  display: inline-flex;
+  align-items: center;
+  color: var(--color-primary);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+.about-text .social-link:hover {
+  color: var(--color-secondary);
+}
+.about-text .social-link svg {
+  width: 1.25rem;
+  height: 1.25rem;
+  margin-right: 0.5rem;
+  fill: currentColor;
+}
+
+/* ===== Footer profesional ===== */
+footer {
+  background-color: var(--color-dark);
+  color: var(--color-light);
+  padding: 2rem 1rem;
+  text-align: center;
+  font-size: 0.9rem;
+}
+.footer-links {
+  margin-top: 0.5rem;
+}
+.footer-links a {
+  margin: 0 0.5rem;
+  color: var(--color-light);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  transition: color 0.2s ease;
+}
+.footer-links a:hover {
+  color: var(--color-secondary);
+}
+.footer-links svg {
+  width: 1.25rem;
+  height: 1.25rem;
+  margin-right: 0.25rem;
+}
